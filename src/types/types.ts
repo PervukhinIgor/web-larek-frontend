@@ -1,3 +1,5 @@
+
+// Модели даннных
 interface Product {
     id: string;           // Уникальный идентификатор товара
     type: string;         // Категория товара
@@ -20,11 +22,13 @@ interface OrderData {
     customerPhone: string;   // Телефон покупателя
 }
 
+// Результат валидации
 interface ValidationResult {
     isValid: boolean;     // Результат валидации
     errors: string[];     // Список ошибок
 }
 
+// Обработчики
 interface MainViewHandlers {
     onProductClick: (productId: string) => void;
     onAddToCart: (productId: string) => void;
