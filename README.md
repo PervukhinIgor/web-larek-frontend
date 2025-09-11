@@ -15,18 +15,24 @@
 - src/utils/constants.ts — файл с константами
 - src/utils/utils.ts — файл с утилитами
 
-## Установка и запуск
-Для установки и запуска проекта необходимо выполнить команды
-
+## Установка зависимостей
 ```
 npm install
-npm run start
 ```
 
-## Сборка
+## Запуск в режиме разработки
+```
+npm run dev
+```
 
+## Сборка для production
 ```
 npm run build
+```
+
+## Запуск собранного проекта
+```
+npm run start
 ```
 
 ## Описание проекта
@@ -51,7 +57,6 @@ class ProductModel {
   getProductById(id: string): Product | undefined;  // Поиск товара по ID
   getProductsByType(type: string): Product[];       // Фильтрация по категории
 }
-
 ```
 ### CartModel
 Класс CartModel управляет корзиной покупок. 
@@ -68,19 +73,16 @@ class CartModel {
   getTotalPrice(): number;                      // Расчет общей суммы
   clearCart(): void;                            // Очистка корзины
 }
-
 ```
 ### OrderModel
 Класс OrderModel управляет заказами. 
 Его функции: 
 - создание заказов; 
 - работа с API заказов.
-
 ```
 class OrderModel {
   async createOrder(data: OrderData): Promise<Order>;  // Создание через Api.post()
 }
-
 ```
 
 ## View (Компоненты представления)
@@ -97,7 +99,6 @@ interface IMainView {
   hideProductModal(): void;                     // Скрытие модального окна
   bindHandlers(handlers: MainViewHandlers): void; // Привязка обработчиков
 }
-
 ```
 
 ### CartView
@@ -113,7 +114,6 @@ interface ICartView {
     showOrderSuccess(order: Order): void;         // Показ успешного заказа
     bindHandlers(handlers: CartViewHandlers): void; // Привязка обработчиков
 }
-
 ```
 
 ### ProductCard
@@ -125,7 +125,6 @@ interface IProductCard {
     setInCartState(isInCart: boolean): void;      // Обновление состояния корзины
     bindHandlers(handlers: ProductCardHandlers): void; // Привязка обработчиков
 }
-
 ```
 
 ## Presenter (Компоненты презентера)
@@ -142,7 +141,6 @@ class MainPresenter {
     onCartIconClick(): void;                      // Обработка клика по иконке корзины
     getHandlers(): MainViewHandlers;              // Получение обработчиков для View
 }
-
 ```
 
 ### CartPresenter
